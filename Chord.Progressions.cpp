@@ -1,27 +1,3 @@
-/*Dev notes:
-This is functional, and works to literally just generate random major/minor chord progressions,
-but it needs to generate more accurately happy major/ minor chord progressions.
-I think the general way you could implement this is by assigning more emphasis on the major chords in
-the key by making it more likely to generate a 0, 4, and 5 for major keys, and a i, ii, 4, and 5 for minor keys.
-
-Likewise, it should generate less amounts of specific chords, and maybe get some patterns, where it generates
-chords for 1/2 of progLength, and then repeats that with a slight modification again to make a progression with repetition
-
-
-After you do that you will be in a good place to add more features, like adding different chord types etc. but this is
-a good starting point
-*/
-
-/* MAJOR: If you want to add chords to give it a certain
-feeling (like an augmented chord for "spooky" sound), you could use a vector and push/pop_back, and add in
- a chord of that type to the vector storing the different chord numbers.
-
-The array for a minor key has 7 elements, one for each minor/major/diminished chord in the key.
-So if we wanted to make a chord progression with a blues-y sound, you could do
-majorVector.pop_back(2), making the vector 5 chords long. Then you could reassign the different elements
-with their respective tones in the pentatonic scale.
-
-*/
 #include <iostream>
 #include <string>
 #include <random>
@@ -94,7 +70,6 @@ void MakeProgression(string key, string attribute, int progLength) {
 }
 
 int main() {
-    //Sets the seed for the random number to time
 
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -109,8 +84,6 @@ int main() {
     cin >> attribute;
     cout << "How many chords ";
     cin >> length;
-
-    //Call to the function that prints out the progression
 
     MakeProgression(key, attribute, length);
 
